@@ -1,38 +1,282 @@
 .App {
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-wrapper {
+  background-color: rgb(234, 244, 255);
   min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+textarea:focus,
+input:focus {
+  outline: 1px solid rgb(21, 88, 195);
+}
+
+.app-container {
   display: flex;
   flex-direction: column;
+  width: 1200px;
+  margin: auto;
+  gap: 80px;
+}
+
+.container {
+  padding-top: 80px;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+/* HEADER */
+.header {
+  height: 60px;
+  background-color: rgb(3, 21, 49);
+  width: 100vw;
+  position: fixed;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  z-index: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.header-title {
+  margin: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* NAV */
+.nav {
+  width: 360px;
+  background-color: rgb(3, 21, 49);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1;
+  padding: 16px;
+  gap: 8px;
+  left: -100%;
+  transition: 0.5s;
+}
+
+.nav-active {
+  left: 0;
+  transition: 3 50ms;
+}
+
+.nav-icon {
+  width: 40px;
+  height: 40px;
+  color: white;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.nav-item:hover {
+  background-color: rgb(21, 88, 195);
+}
+
+.is-active {
+  background-color: rgb(21, 88, 195);
+}
+
+/* STATS */
+.stats-dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.stats-dashboard-card {
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+  width: calc(100% / 3);
+  padding: 20px;
+}
+
+.stats-dashboard-card-header {
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.stats-dashboard-card-stat {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* CRYPTOCURRENCIES */
+.cr-cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  row-gap: 16px;
+}
+
+.cr-card {
+  width: 24%;
+  min-height: 200px;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.cr-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.cr-card-header-title {
+  font-size: 1.25rem;
+}
+
+.cr-card-header-img {
+  width: 40px;
+  height: 100%;
+}
+
+.cr-card-text {
+  line-height: 1.5;
+}
+
+.cr-card-link {
+  float: right;
+}
+
+/* NEWS */
+.news-cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 16px;
+}
+
+.news-card {
+  width: 32%;
+  min-height: 300px;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.news-card-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  gap: 20px;
+}
+
+.news-card-header-title {
+  font-size: 1.25rem;
+}
+
+.news-card-header-img {
+  width: 80px;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.news-card-text {
+  line-height: 1.5;
+}
+
+.news-card-link {
+  float: right;
+}
+
+.news-card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.input {
+  padding: 4px;
+  width: 16rem;
+  border-width: 1px;
+  border: 1px solid rgb(172, 172, 172);
+  font-size: 1.5rem;
+  background: rgb(255, 255, 255);
+  scrollbar-color: rgb(21, 88, 195) white;
+}
+
+option {
+  font-size: 1.25rem;
+  padding: 4px;
+
+  width: 16rem;
+  height: 2rem;
+  background: rgb(255, 255, 255);
+}
+
+/* CRDetails */
+.details-header {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}
+
+.details-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+  padding: 40px 0px 120px 0px;
+}
+
+.details-card {
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+  width: calc(100% / 4);
+  padding: 20px;
+}
+
+.details-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
