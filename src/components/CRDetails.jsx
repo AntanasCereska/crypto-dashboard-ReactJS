@@ -14,7 +14,7 @@ const CRDetails = () => {
   const { data, isFetching } = useGetCRDetailsQuery(CRId);
   const { data: CRhistory } = useGetCRHistoryQuery({ CRId, timePeriod });
   const CRDetails = data?.data?.coin;
-
+  console.log(CRhistory);
   if (isFetching) return "Loading...";
 
   console.log("data");
@@ -24,7 +24,6 @@ const CRDetails = () => {
   }
 
   const time = ["7d", "30d", "1y", "5y"];
-
   return (
     <div className="container">
       <div className="details-header">
@@ -100,7 +99,12 @@ const CRDetails = () => {
           ))}
         </select>
         <h2>{CRDetails.name} Price chart</h2>
-        <h2>{CRhistory?.data?.change}</h2>
+
+        {CRhistory?.data?.change > 0 ? (
+          <h2 style={{ color: "green" }}>+{CRhistory?.data?.change}%</h2>
+        ) : (
+          <h2 style={{ color: "red" }}>{CRhistory?.data?.change}%</h2>
+        )}
       </div>
       <Chart CRhistory={CRhistory} CRprice={millify(CRDetails.price)} />
 

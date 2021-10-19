@@ -11,7 +11,7 @@ const News = ({ showLess }) => {
   const { data } = useGetCryptosQuery(100);
 
   if (!bingNews?.value) return "Loading...";
-
+  console.log(data);
   return (
     <div className="container">
       <div className="container-header">

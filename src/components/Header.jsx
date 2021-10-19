@@ -4,6 +4,7 @@ import * as FaIcons from "react-icons/fa";
 import NavItem from "./NavItem";
 import { navData } from "../Data/NavData";
 import * as AiIcons from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [nav, setNav] = useState(true);
@@ -14,7 +15,11 @@ const Header = () => {
         <IconContext.Provider value={{ className: "nav-icon" }}>
           <FaIcons.FaBars onClick={showNav} />
         </IconContext.Provider>
-        <h1 className="header-title">CryptoNews</h1>
+        <h1 className="header-title">
+          <Link to={`/`} style={{ textDecoration: "none", color: "white" }}>
+            CryptoNews
+          </Link>
+        </h1>
       </div>
       <div className={nav ? "nav nav-active" : "nav"}>
         <IconContext.Provider value={{ className: "nav-icon" }}>

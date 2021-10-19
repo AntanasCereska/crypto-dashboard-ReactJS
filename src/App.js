@@ -2,9 +2,11 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import CRDetails from "./components/CRDetails";
 import Cryptocurrencies from "./components/Cryptocurrencies";
+import Exchanges from "./components/Exchanges";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import News from "./components/News";
+
 const App = () => {
   return (
     <div className="app-wrapper">
@@ -16,6 +18,9 @@ const App = () => {
           </Route>
           <Route exact path="/cryptocurrencies">
             <Cryptocurrencies />
+          </Route>
+          <Route exact path="/exchanges">
+            <Exchanges />
           </Route>
           <Route exact path="/news">
             <News />

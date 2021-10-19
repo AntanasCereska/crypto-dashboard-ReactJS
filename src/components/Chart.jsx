@@ -34,10 +34,6 @@ const Chart = ({ CRhistory, CRname }) => {
         <Line
           data={state}
           options={{
-            title: {
-              display: true,
-              fontSize: 20,
-            },
             plugins: {
               legend: {
                 display: false,
